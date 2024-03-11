@@ -1,0 +1,53 @@
+﻿@using GiftContributions.Data
+@model DepositsViewModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <header>
+    </header>
+    <div b-2ya7vgwtda class="container">
+        <main b-2ya7vgwtda role="main" class="pb-3" style="margin-top: 60px;">
+
+            <div class="header">
+                <h1>History for</h1>
+                <h3>Current Balance: $@Model.Total</h3>
+            </div>
+
+            <div class="row header">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach(Deposit d in Model.Deposits)
+                        {
+                           <tr>
+                               <td>@d.Description</td>
+                               <td>@d.DepositDate</td>
+                               <td>@d.DepositAmount</td>
+                           </tr> 
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="text-align:center;">
+                <a class="btn btn-lg btn-dark" href="/home/contributors">Back to Contributors</a>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
